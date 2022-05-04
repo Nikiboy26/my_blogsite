@@ -1,0 +1,116 @@
+---
+title: Russian Losses in Ukraine
+author: Package Build
+date: '2022-05-02'
+slug: []
+categories:
+  - R
+tags:
+  - R Markdown
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+#### Introduction 
+
+On February 24th 2022 Russia launched a full-scale invasion on Ukrainian soil. Months before the invasion Russia started moving its troops closer to the Ukrainian border. According to the US government Russia had between 169,000 and 190,000 personnel in and around Ukraine. Many analysts believed that war would end very quick resulting in Russia's victory. However, 2 months after the invasion began, Russia not only didn't destroy Ukrainian forces, there is a good chance now for Russia to lose this war. There are a lot of reasons why Russia failed but here I would to focus on the information about Russian losses after these two months of war.
+You can also get familiar with the data in a shiny app [here](https://nikita-kaymonov.shinyapps.io/rus_losses_ukraine/)
+
+```{r include = FALSE}
+library(tidyverse)
+library(lubridate)
+library(plotly)
+
+equipment <- read_csv("https://github.com/Nikiboy26/Russian_losses/raw/main/russia_losses_equipment.csv",
+                      col_select = c(day, helicopter, aircraft, tank, drone))
+
+
+personnel <- read_csv("https://github.com/Nikiboy26/Russian_losses/raw/main/russia_losses_personnel.csv",
+                      col_select = c(date, day, personnel, POW))
+
+#Join datasets 
+losses <- personnel%>%
+  full_join(equipment, by = 'day')
+
+
+#Daily losses for the app  
+losses <- losses%>%
+  mutate(Tanks = tank - lag(tank),
+         Helicopters = helicopter - lag(helicopter),
+         Drones = drone - lag(drone),
+         Aircrafts = aircraft - lag(aircraft),
+         Soldiers = personnel - lag(personnel),
+         week = week(date))%>%
+  filter(!row_number() %in% 1)%>%
+  select(-c(3:8))%>%
+  mutate(week = week - 8)
+```
+
+##### Soldiers 
+
+Counting the losses is not an easy task especially during a full scale war. There are several aspects that make it difficult. While the war is still going, each side wants to look better and keep its soldiers and civilians moral so they tend to exaggerate the enemy losses while understating its own casualties. 
+Russia doesn't like to talk about its losses and does not give weekly updates. After the first month they confirmed 1351 killed and 3825 wounded soldiers. At approximately the same time NATO estimated 7.000 to 15.000 killed and up to 40.000 in total killed, wounded, taken or missing. The Ukrainian number at this point was about 15.000 which aligns more closely with NATO estimates.
+Another problem as I said before the war is not stopping after each firefight. Depending on the level of communication some units are just not able to report enemy's losses correctly. Especially if the unit was destroyed. 
+There are some features of this war that help to get numbers in real time: we have a lot of drone footage or analysis of the Russian social networks to identify soldiers who didn't come back. But the point is that it's quite difficult to know the precise numbers. 
+
+
+```{r pressure, echo=FALSE}
+losses %>%
+  plot_ly(x = ~date, y = ~Soldiers,
+          hoverinfo = 'text', 
+          text = ~paste('Date:', date, '<br>',
+                        'Units:', Soldiers))%>%
+  add_bars()%>%
+  layout(xaxis = list(title = "Date"),
+         yaxis = list(title = 'Number per Day'),
+         title = 'Amount of Personnel Lost per Day')
+```
+
+Here we can see that a lot of heavy fights happened in the beginning of the war. Also we can see no reported losses from March 9th to 14th. It's hard to believe there were no fire-fights. Most likely it's a reporting problem. 
+Another interesting thing about the data is that we have 15 days where the number of Russian losses is 200, 11 days where it is 200 and 10 with 100. 
+Obviously that tells us that it's not a real number. Is it fake? More likely is that numbers are just rounded but it's still an interesting thing to look into 
+
+##### Tanks 
+
+```{r echo = FALSE}
+losses %>%
+  plot_ly(x = ~date, y = ~Tanks,
+          hoverinfo = 'text', 
+          text = ~paste('Date:', date, '<br>',
+                        'Units:', Tanks))%>%
+  add_bars()%>%
+  layout(xaxis = list(title = "Date"),
+         yaxis = list(title = 'Number per Day'),
+         title = 'Amount of Tanks Lost per Day')
+```
+
+Oh, tanks. Probably everyone who has the internet saw a bunch of photos of destroyed Russian tanks, especially ones that get decapitated. One thing about lost tanks is that it is easier to get a better number. Tanks are quite big and easier to identify using footage we get from the ground and numerous drones. For example [here](https://www.oryxspioenkop.com/2022/02/attack-on-europe-documenting-equipment.html) you can find documented Russian equipment losses in Ukraine. For each destroyed tank or other military equipment there is a photo so it makes it way easier to identify and confirm losses. 
+So we can see that Javelins and other anti-tank weapons provided to Ukranians work very well against Russian tanks. But unlike Germany that has only two thousand tanks, Russia has about 22 thousand. Of course, we don't know how many of them are actually able to fight, but the point is: Russia can afford to lose thousands of tanks. 
+
+
+##### Aircrafts
+
+As war started Russia almost immediately claimed air superiority and that it destroyed Ukrainian air forces. Although we didn't really see massive use of Russian planes. Moreover, we see a lot of footage of Russian jets and helicopters being taken down. As javelins are effective against tanks stingers doing a pretty good job shooting aircrafts.  
+
+
+```{r echo =FALSE, warning= FALSE}
+losses%>%
+  select(c(date, Helicopters, Aircrafts))%>%
+  gather(Helicopters:Aircrafts, key = 'type', value = 'number')%>%
+  plot_ly(x = ~date, y = ~number, color = ~type)%>%
+  add_bars()%>%
+  layout(barmode = 'stack',
+         xaxis = list(title = "Date"),
+         yaxis = list(title = 'Number per Day'),
+         title = 'Aircrafts Lost per Day')
+```
+
+##### What do we have now 
+
+So far we can see that the attempt to quickly take the Ukraine failed and Russia has lost more soldiers than it did during both Chechen wars together. But it doesn't mean it lost and ready to stop. Russia is a very big country that has a lot of reserves and can keep throwing soldiers and equipment into Ukraine for quite a long time. Ukraine on the other hand is backed by Western countries that pledged to supply the Ukrainian army with equipment and ammunition. So, unless it turns into a nuclear annihilation this is going to be a long war. 
+
+##### Where is it all goes? 
+
+Anybody who has studied the history of armed conflicts knows that it's always easy to start a war, the problem is nobody knows how to stop it. There's no clear scenario where both sides agree to a ceasefire. Russian propaganda is completely focused on convincing its people that they have to keep fighting. Taking the whole Ukraine looks highly unlikely but even if Russia somehow occupies the Donbas region Ukranians will not stop fighting. Looks like both sides are ready for the war of attrition. Under the economic sanctions and even if there's a gas embargo Russia has enough resources to keep fighting. Sadly, we are going to see more people die and more cities destroyed.

@@ -1,0 +1,30 @@
+---
+title: Hire Me
+url: "/services"
+hidemeta: true
+disableShare: true
+summary:
+  Hire Nikita for your professional needs. This section details his
+  services, rates, skill sets & everything else you might want to know before
+  hiring him.
+---
+
+My data journey started when I took statistics with R class during my psychology master program. Since then I have been obsessed with all the data science related things.
+
+If you are interested in my stance about R vs. Python: I use both. I like learning and trying new things, so why limit myself? Saying that, I do have a personal preference for R. I just feel comfortable using it for most of the tasks and I keep learning new cool things I can use it for.
+
+### Technology Stack
+**Computer Languages:** R, Python SQL\
+**Skills:** Statistical experimentation, A/B testing, Machine Learning, Data Analysis\
+**Cool packages**: Shiny, Plotly, Caret\
+**Human Languages**: English, Russian, German (*If your team is multinational* 🙂)
+
+
+_**Note**_: These are technologies I am most comfortable with, if you didn’t find something here there’s a high chance I’m learning it right now.
+ 
+
+For any business queries, contact me through the provided [contact details](../about/#contact-me)
+
+<!-- * Personal -->
+
+[email]: mailto:nikita.kaymonov@gmail.com

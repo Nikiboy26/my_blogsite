@@ -1,0 +1,3 @@
+User-agent: *
+Disallow:
+Sitemap: http://nikita-kaymonov.github.io/sitemap.xml
