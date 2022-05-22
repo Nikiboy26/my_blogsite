@@ -2,20 +2,38 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Tags on Nikita Kaymonov</title>
-    <link>http://nikita-kaymonov.github.io/tags/</link>
+    <link>https://nikita-kaymonov.netlify.app/tags/</link>
     <description>Recent content in Tags on Nikita Kaymonov</description>
     <image>
-      <url>http://nikita-kaymonov.github.io/papermod-cover.png</url>
-      <link>http://nikita-kaymonov.github.io/papermod-cover.png</link>
+      <url>https://nikita-kaymonov.netlify.app/papermod-cover.png</url>
+      <link>https://nikita-kaymonov.netlify.app/papermod-cover.png</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Mon, 02 May 2022 00:00:00 +0000</lastBuildDate><atom:link href="http://nikita-kaymonov.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 06 May 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://nikita-kaymonov.netlify.app/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>R Markdown</title>
-      <link>http://nikita-kaymonov.github.io/tags/r-markdown/</link>
-      <pubDate>Mon, 02 May 2022 00:00:00 +0000</pubDate>
+      <title>analysis</title>
+      <link>https://nikita-kaymonov.netlify.app/tags/analysis/</link>
+      <pubDate>Fri, 06 May 2022 00:00:00 +0000</pubDate>
       
-      <guid>http://nikita-kaymonov.github.io/tags/r-markdown/</guid>
+      <guid>https://nikita-kaymonov.netlify.app/tags/analysis/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>kaggle</title>
+      <link>https://nikita-kaymonov.netlify.app/tags/kaggle/</link>
+      <pubDate>Fri, 06 May 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://nikita-kaymonov.netlify.app/tags/kaggle/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>machine learning</title>
+      <link>https://nikita-kaymonov.netlify.app/tags/machine-learning/</link>
+      <pubDate>Sun, 01 May 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://nikita-kaymonov.netlify.app/tags/machine-learning/</guid>
       <description></description>
     </item>
     

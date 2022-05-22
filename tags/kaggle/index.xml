@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>Nikita Kaymonov</title>
-    <link>https://nikita-kaymonov.netlify.app/</link>
-    <description>Recent content on Nikita Kaymonov</description>
+    <title>kaggle on Nikita Kaymonov</title>
+    <link>https://nikita-kaymonov.netlify.app/tags/kaggle/</link>
+    <description>Recent content in kaggle on Nikita Kaymonov</description>
     <image>
       <url>https://nikita-kaymonov.netlify.app/papermod-cover.png</url>
       <link>https://nikita-kaymonov.netlify.app/papermod-cover.png</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Fri, 06 May 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://nikita-kaymonov.netlify.app/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 06 May 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://nikita-kaymonov.netlify.app/tags/kaggle/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>[Kaggle] Two months in Ukraine for Russian Military</title>
       <link>https://nikita-kaymonov.netlify.app/post/2022-05-06-kaggle-two-months-in-ukraine-for-russian-military/</link>
@@ -28,25 +28,6 @@ On February 24th 2022 Russia launched a full-scale invasion on Ukrainian soil. M
       <guid>https://nikita-kaymonov.netlify.app/post/2022-05-01-kaggle-specialty-cofee-grades/</guid>
       <description>Coffee quality prediction Originally published on Kaggle
 Introduction Hi, I’m Nikita. I love good coffee. You probably have seen a lot of specialty cafes around (or probably sitting in one right now while reading this and drinking your Geisha coffee made in Chemex). For coffee to be put in the “specialty” category it has to be graded higher than 80 points on a 100 point scale. People who taste and grade coffee are trained specialists (like wine sommeliers) called q-graders.</description>
-    </item>
-    
-    <item>
-      <title>About Me</title>
-      <link>https://nikita-kaymonov.netlify.app/about/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://nikita-kaymonov.netlify.app/about/</guid>
-      <description>Abiut Nikita Kaymonov. This section details what he does &amp;amp; everything else you might want to know about him.</description>
-    </item>
-    
-    
-    <item>
-      <title>Hire Me</title>
-      <link>https://nikita-kaymonov.netlify.app/services/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://nikita-kaymonov.netlify.app/services/</guid>
-      <description>Hire Nikita for your professional needs. This section details his services, rates, skill sets &amp;amp; everything else you might want to know before hiring him.</description>
     </item>
     
   </channel>

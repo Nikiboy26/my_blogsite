@@ -13,6 +13,8 @@ My data journey started when I took statistics with R class during my psychology
 
 If you are interested in my stance about R vs. Python: I use both. I like learning and trying new things, so why limit myself? Saying that, I do have a personal preference for R. I just feel comfortable using it for most of the tasks and I keep learning new cool things I can use it for.
 
+I am also a nomad, which means I am always ready to relocate to any country ✈️
+
 ### Technology Stack
 **Computer Languages:** R, Python SQL\
 **Skills:** Statistical experimentation, A/B testing, Machine Learning, Data Analysis\

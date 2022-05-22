@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>[Kaggle] Specialty Cofee Grades | Nikita Kaymonov</title>
+<meta name="keywords" content="kaggle, analysis, machine learning">
+<meta name="description" content="Coffee quality prediction Originally published on Kaggle
+Introduction Hi, I’m Nikita. I love good coffee. You probably have seen a lot of specialty cafes around (or probably sitting in one right now while reading this and drinking your Geisha coffee made in Chemex). For coffee to be put in the “specialty” category it has to be graded higher than 80 points on a 100 point scale. People who taste and grade coffee are trained specialists (like wine sommeliers) called q-graders.">
+<meta name="author" content="Package Build">
+<link rel="canonical" href="https://nikita-kaymonov.netlify.app/post/2022-05-01-kaggle-specialty-cofee-grades/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.min.ec8da366ca2fb647537ccb7a8f6fa5b4e9cd3c7a0d3171dd2d3baad1e49c8bfc.css" integrity="sha256-7I2jZsovtkdTfMt6j2&#43;ltOnNPHoNMXHdLTuq0eSci/w=" rel="preload stylesheet" as="style">
+<script defer crossorigin="anonymous" src="/assets/js/highlight.min.2840b7fccd34145847db71a290569594bdbdb00047097f75d6495d162f5d7dff.js" integrity="sha256-KEC3/M00FFhH23GikFaVlL29sABHCX911kldFi9dff8="
+    onload="hljs.initHighlightingOnLoad();"></script>
+<link rel="icon" href="https://nikita-kaymonov.netlify.app/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://nikita-kaymonov.netlify.app/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://nikita-kaymonov.netlify.app/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://nikita-kaymonov.netlify.app/apple-touch-icon.png">
+<link rel="mask-icon" href="https://nikita-kaymonov.netlify.app/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --hljs-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript>
+<script
+  defer
+  src="https://static.cloudflareinsights.com/beacon.min.js"
+  data-cf-beacon='{"token": "392941b3f13c4678bb21cdb0fadafe91"}'
+></script>
+
+
+<meta
+  name="google-site-verification"
+  content="ksFwXaurAJ-U31-m5d3m-e4vgS96Hc1JfSx4Wq-gSF4"
+/>
+
+
+<script
+  async
+  src="https://www.googletagmanager.com/gtag/js?id="
+></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() {
+    dataLayer.push(arguments);
+  }
+  gtag("js", new Date());
+
+  gtag("config", "");
+</script>
+
+<meta property="og:title" content="[Kaggle] Specialty Cofee Grades" />
+<meta property="og:description" content="Coffee quality prediction Originally published on Kaggle
+Introduction Hi, I’m Nikita. I love good coffee. You probably have seen a lot of specialty cafes around (or probably sitting in one right now while reading this and drinking your Geisha coffee made in Chemex). For coffee to be put in the “specialty” category it has to be graded higher than 80 points on a 100 point scale. People who taste and grade coffee are trained specialists (like wine sommeliers) called q-graders." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://nikita-kaymonov.netlify.app/post/2022-05-01-kaggle-specialty-cofee-grades/" /><meta property="og:image" content="https://nikita-kaymonov.netlify.app/papermod-cover.png"/><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2022-05-01T00:00:00&#43;00:00" />
+<meta property="article:modified_time" content="2022-05-01T00:00:00&#43;00:00" />
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://nikita-kaymonov.netlify.app/papermod-cover.png"/>
+
+<meta name="twitter:title" content="[Kaggle] Specialty Cofee Grades"/>
+<meta name="twitter:description" content="Coffee quality prediction Originally published on Kaggle
+Introduction Hi, I’m Nikita. I love good coffee. You probably have seen a lot of specialty cafes around (or probably sitting in one right now while reading this and drinking your Geisha coffee made in Chemex). For coffee to be put in the “specialty” category it has to be graded higher than 80 points on a 100 point scale. People who taste and grade coffee are trained specialists (like wine sommeliers) called q-graders."/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "Posts",
+      "item": "https://nikita-kaymonov.netlify.app/post/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  3 ,
+      "name": "[Kaggle] Specialty Cofee Grades",
+      "item": "https://nikita-kaymonov.netlify.app/post/2022-05-01-kaggle-specialty-cofee-grades/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "[Kaggle] Specialty Cofee Grades",
+  "name": "[Kaggle] Specialty Cofee Grades",
+  "description": "Coffee quality prediction Originally published on Kaggle\nIntroduction Hi, I’m Nikita. I love good coffee. You probably have seen a lot of specialty cafes around (or probably sitting in one right now while reading this and drinking your Geisha coffee made in Chemex). For coffee to be put in the “specialty” category it has to be graded higher than 80 points on a 100 point scale. People who taste and grade coffee are trained specialists (like wine sommeliers) called q-graders.",
+  "keywords": [
+    "kaggle", "analysis", "machine learning"
+  ],
+  "articleBody": " Coffee quality prediction Originally published on Kaggle\nIntroduction Hi, I’m Nikita. I love good coffee. You probably have seen a lot of specialty cafes around (or probably sitting in one right now while reading this and drinking your Geisha coffee made in Chemex). For coffee to be put in the “specialty” category it has to be graded higher than 80 points on a 100 point scale. People who taste and grade coffee are trained specialists (like wine sommeliers) called q-graders. They can evaluate the quality and defects of green beans, find potential mistakes in coffee roasting and identify different roasts. I don’t have highly developed sensory skills needed to be a grader. But I have other skills. So why not use machine learning to grade the coffee?\nSounds interesting to you? Check out this analysis!\nYou can find the dataset here\n Country of origin We have a lot of countries, let’s see what are the most popular countries of origin\nHere we see that a lot of coffee in this dataset comes from Americas\n Proccessing methods Most of the coffee in the dataset is processed using washing method. Which can be explained by the most popular countries our coffee comes from. Dry method is more common in countries like Ethiopia or Brazil where the water is expensive so they just leave beans in the sun right after picking.\nHere Brazil is the only country where dry processing methods is more common. As we mentioned before it often happens in regions with limited access to water and Brazil is one of these regions. Although it can have a lot of advantages when we talk about the taste. Dried coffee tends to have a rich and heavy body, which many coffee drinkers prefer. Also it allows to experiment with different fermentation techniques.\n Coffee quality Not all coffee tastes the same. And some beans are better than others. After graders taste the beans they assign grades to it. The widely accepted definition of specialty coffee is coffee scoring 80 points or above on a 100-point scale. Coffee scoring from 90–100 is graded Outstanding, coffee that scores 85–89.99 is graded Excellent, while coffee scoring 80–84.99 is graded Very Good. Everything lower than that doesn’t fall into “Specialty’ category.\nThe highest grading point we have in this dataset is 89.92. Which means we don’t really have bags with ‘outstanding’ coffee. There are some “excellent” coffees but most bags fall into the ‘Very Good’ category. Which means only 13.5% of our coffee is not ‘Specialty Coffee’. So if you would randomly pick a bag from our dataset most likely you will enjoy your cup of coffee (assuming you know how to brew it).\n Modelling As I showed above, coffee comes from different countries and is processed using different methods. There are also other variables like the altitude where coffee grows, different types of defects beans have etc. To sell our beans to good cafes we need to find a trained person who would taste our coffee and assign the grade. Instead of training a person we can just train a machine and then use it to assign grades to new coffee. So below you’ll find my model that does exactly this.\n  Building predictive models Test/train split Let’s start with splitting data into test and train sets, so we don’t predict on the same data we used for training and our model is actually good for predicting.\ncoffee_sub % select(-id) set.seed(150) rows   Cross validation model Let’s try lm model with cross validation. It’s a good start.\nset.seed(66) # Fit lm model using 10-fold CV: model model_cv  To evaluate a regression model I like to use RMSE(root mean square error). The smaller here is better.\nerror  ## [1] 1.30227 Good start, but we want RMSE that less than standard deviation in dataset, so let’s try Random Forest\n Random forest set.seed(60) model_rf  And calculate RMSE\nerror  ## [1] 0.8921845 So we got RMSE 1.261236 which is a pretty good result given SD = 2.610294. Since hiring q-graders can be expensive, some coffee farmers can actually use machine learning for grading their coffee.\nNext step Having some newer data and wrapping this model into Shiny app and you can just input the info on whatever beans you have and get pretty accurate grades 🙂\n   ",
+  "wordCount" : "829",
+  "inLanguage": "en",
+  "datePublished": "2022-05-01T00:00:00Z",
+  "dateModified": "2022-05-01T00:00:00Z",
+  "author":{
+    "@type": "Person",
+    "name": "Package Build"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://nikita-kaymonov.netlify.app/post/2022-05-01-kaggle-specialty-cofee-grades/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Nikita Kaymonov",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://nikita-kaymonov.netlify.app/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://nikita-kaymonov.netlify.app" accesskey="h" title="Nikita Kaymonov (Alt + H)">Nikita Kaymonov</a>
+            <span class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </span>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://nikita-kaymonov.netlify.app/about/" title="About me">
+                    <span>About me</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://nikita-kaymonov.netlify.app/blog/" title="Archive">
+                    <span>Archive</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://nikita-kaymonov.netlify.app/services/" title="Services">
+                    <span>Services</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+
+  <main class="main">
+
+<article class="post-single">
+  <header class="post-header"><div class="breadcrumbs"><a href="https://nikita-kaymonov.netlify.app">Home</a>&nbsp;»&nbsp;<a href="https://nikita-kaymonov.netlify.app/post/">Posts</a></div>
+    <h1 class="post-title">
+      [Kaggle] Specialty Cofee Grades
+    </h1>
+  </header> 
+  <div class="post-content">
+
+
+<div id="coffee-quality-prediction" class="section level3">
+<h3>Coffee quality prediction</h3>
+<p>Originally published on <a href="https://www.kaggle.com/code/nikitakaymonov/coffee-quality-analysis-and-ml-model">Kaggle</a></p>
+<div id="introduction" class="section level4">
+<h4>Introduction</h4>
+<p>Hi, I’m Nikita. I love good coffee. You probably have seen a lot of specialty cafes around (or probably sitting in one right now while reading this and drinking your Geisha coffee made in Chemex). For coffee to be put in the “specialty” category it has to be graded higher than 80 points on a 100 point scale. People who taste and grade coffee are trained specialists (like wine sommeliers) called q-graders. They can evaluate the quality and defects of green beans, find potential mistakes in coffee roasting and identify different roasts. I don’t have highly developed sensory skills needed to be a grader. But I have other skills. So why not use machine learning to grade the coffee?</p>
+<p>Sounds interesting to you? Check out this analysis!</p>
+<p>You can find the dataset <a href="https://raw.githubusercontent.com/Nikiboy26/Coffee_quality_ML/main/Coffee%20Dataset.csv">here</a></p>
+</div>
+<div id="country-of-origin" class="section level4">
+<h4>Country of origin</h4>
+<p>We have a lot of countries, let’s see what are the most popular countries of origin</p>
+<p><img src="https://nikita-kaymonov.netlify.app/post/2022-05-01-kaggle-specialty-cofee-grades/index_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+<p>Here we see that a lot of coffee in this dataset comes from Americas</p>
+</div>
+<div id="proccessing-methods" class="section level4">
+<h4>Proccessing methods</h4>
+<p><img src="https://nikita-kaymonov.netlify.app/post/2022-05-01-kaggle-specialty-cofee-grades/index_files/figure-html/unnamed-chunk-13-1.png" width="672" /></p>
+<p>Most of the coffee in the dataset is processed using washing method. Which can be explained by the most popular countries our coffee comes from. Dry method is more common in countries like Ethiopia or Brazil where the water is expensive so they just leave beans in the sun right after picking.</p>
+<p><img src="https://nikita-kaymonov.netlify.app/post/2022-05-01-kaggle-specialty-cofee-grades/index_files/figure-html/unnamed-chunk-14-1.png" width="672" /></p>
+<p>Here Brazil is the only country where dry processing methods is more common. As we mentioned before it often happens in regions with limited access to water and Brazil is one of these regions. Although it can have a lot of advantages when we talk about the taste. Dried coffee tends to have a rich and heavy body, which many coffee drinkers prefer. Also it allows to experiment with different fermentation techniques.</p>
+</div>
+<div id="coffee-quality" class="section level4">
+<h4>Coffee quality</h4>
+<p>Not all coffee tastes the same. And some beans are better than others. After graders taste the beans they assign grades to it. The widely accepted definition of specialty coffee is coffee scoring 80 points or above on a 100-point scale. Coffee scoring from 90–100 is graded Outstanding, coffee that scores 85–89.99 is graded Excellent, while coffee scoring 80–84.99 is graded Very Good. Everything lower than that doesn’t fall into “Specialty’ category.</p>
+<p><img src="https://nikita-kaymonov.netlify.app/post/2022-05-01-kaggle-specialty-cofee-grades/index_files/figure-html/unnamed-chunk-15-1.png" width="672" /></p>
+<p>The highest grading point we have in this dataset is 89.92. Which means we don’t really have bags with ‘outstanding’ coffee. There are some “excellent” coffees but most bags fall into the ‘Very Good’ category. Which means only 13.5% of our coffee is not ‘Specialty Coffee’.
+So if you would randomly pick a bag from our dataset most likely you will enjoy your cup of coffee (assuming you know how to brew it).</p>
+</div>
+<div id="modelling" class="section level4">
+<h4>Modelling</h4>
+<p>As I showed above, coffee comes from different countries and is processed using different methods. There are also other variables like the altitude where coffee grows, different types of defects beans have etc.
+To sell our beans to good cafes we need to find a trained person who would taste our coffee and assign the grade. Instead of training a person we can just train a machine and then use it to assign grades to new coffee.
+So below you’ll find my model that does exactly this.</p>
+</div>
+</div>
+<div id="building-predictive-models" class="section level3">
+<h3>Building predictive models</h3>
+<div id="testtrain-split" class="section level4">
+<h4>Test/train split</h4>
+<p>Let’s start with splitting data into test and train sets, so we don’t predict on the same data we used for training and our model is actually good for predicting.</p>
+<pre class="r"><code>coffee_sub &lt;- coffee_sub%&gt;%
+  select(-id)
+
+set.seed(150)
+rows &lt;- sample(nrow(coffee_sub))
+
+# Randomly order data
+shuffled_coffee &lt;- coffee_sub[rows,]
+
+# Determine row to split on: split
+split &lt;- round(nrow(coffee_sub) * .80)
+
+# Create train
+train &lt;- shuffled_coffee[1:split,]
+
+# Create test
+test &lt;- shuffled_coffee[(split +1):nrow(shuffled_coffee),]</code></pre>
+</div>
+<div id="cross-validation-model" class="section level4">
+<h4>Cross validation model</h4>
+<p>Let’s try lm model with cross validation. It’s a good start.</p>
+<pre class="r"><code>set.seed(66)
+# Fit lm model using 10-fold CV: model
+model_cv &lt;- train(
+  total.cup.points ~., 
+  coffee_sub,
+  method = &quot;lm&quot;,
+  trControl = trainControl(
+    method = &quot;cv&quot;, 
+    number = 10,
+    verboseIter = TRUE
+  )
+)
+
+p &lt;- predict(model_cv, test)</code></pre>
+<p>To evaluate a regression model I like to use RMSE(root mean square error). The smaller here is better.</p>
+<pre class="r"><code>error &lt;- p - test[,&quot;total.cup.points&quot;]
+
+rmse_cv &lt;-  sqrt(mean(error$total.cup.points^2)) #SD = 1.722239
+rmse_cv</code></pre>
+<pre><code>## [1] 1.30227</code></pre>
+<p>Good start, but we want RMSE that less than standard deviation in dataset, so let’s try Random Forest</p>
+</div>
+<div id="random-forest" class="section level4">
+<h4>Random forest</h4>
+<pre class="r"><code>set.seed(60)
+model_rf &lt;- train(
+  total.cup.points ~.,
+  tuneLength = 1,
+  data = coffee_sub, 
+  method = &quot;ranger&quot;,
+  trControl = trainControl(
+    method = &quot;cv&quot;, 
+    number = 5, 
+    verboseIter = TRUE
+  )
+)
+
+p &lt;- predict(model_rf, test)</code></pre>
+<p>And calculate RMSE</p>
+<pre class="r"><code>error &lt;- p - test[,&quot;total.cup.points&quot;]
+
+# Calculate RMSE
+rmse_rf &lt;-  sqrt(mean(error$total.cup.points^2)) # 
+rmse_rf</code></pre>
+<pre><code>## [1] 0.8921845</code></pre>
+<p>So we got RMSE 1.261236 which is a pretty good result given SD = 2.610294. Since hiring q-graders can be expensive, some coffee farmers can actually use machine learning for grading their coffee.</p>
+<div id="next-step" class="section level5">
+<h5>Next step</h5>
+<p>Having some newer data and wrapping this model into Shiny app and you can just input the info on whatever beans you have and get pretty accurate grades 🙂</p>
+</div>
+</div>
+</div>
+
+</div>
+  <br>
+  <div class="form"></div>
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://nikita-kaymonov.netlify.app/tags/kaggle/">kaggle</a></li>
+      <li><a href="https://nikita-kaymonov.netlify.app/tags/analysis/">analysis</a></li>
+      <li><a href="https://nikita-kaymonov.netlify.app/tags/machine-learning/">machine learning</a></li>
+    </ul>
+    <nav class="paginav">
+      <a class="prev" href="https://nikita-kaymonov.netlify.app/post/2022-05-06-kaggle-two-months-in-ukraine-for-russian-military/">
+        <span class="title">« Prev Page</span>
+        <br>
+        <span>[Kaggle] Two months in Ukraine for Russian Military</span>
+      </a>
+    </nav>
+  </footer>
+</article>
+  </main><footer class="footer">
+  <span>&copy; 2019-2022 <a href="https://nikita-kaymonov.netlify.app">Nikita Kaymonov</a></span>
+  <span>&middot;</span>
+  <span>Powered by <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a></span>
+  <span>&amp;</span>
+  <span><a href="https://git.io/hugopapermod" rel="noopener" target="_blank">PaperMod</a></span>
+  <br>
+  <span>This Site is <a href="https://github.com/Jarmos-san/blog" rel="noopener noreferrer" target="_blank">Open-Sourced</a> with &#10084;&#65039;</span>
+  <span>&middot;</span>
+  <span><a href="../terms-of-service-agreement/index.html">Terms of Service</a></span>
+  <span>&middot;</span>
+  <span><a href="../privacy-policy/index.html">Privacy Policy</a></span>
+  <span>&middot;</span>
+  <span>Articles Are Licensed Under <a href="https://github.com/Jarmos-san/blog/blob/main/LICENSE" rel="nooopener noreferrer" target="_blank">CC BY-NC 4.0</a></span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)">
+  <button class="top-link" id="top-link" type="button" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+      <path d="M12 6H0l6-6z" />
+    </svg>
+  </button>
+</a>
+<script defer src="/assets/js/highlight.min.2840b7fccd34145847db71a290569594bdbdb00047097f75d6495d162f5d7dff.js" integrity="sha256-KEC3/M00FFhH23GikFaVlL29sABHCX911kldFi9dff8=" onload="hljs.initHighlightingOnLoad();"></script>
+<script>
+  window.onload = function () {
+    if (localStorage.getItem("menu-scroll-position")) {
+      document.getElementById('menu').scrollLeft = localStorage.getItem("menu-scroll-position");
+    }
+  }
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener("click", function (e) {
+      e.preventDefault();
+      var id = this.getAttribute("href").substr(1);
+      if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+          behavior: "smooth"
+        });
+      } else {
+        document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+      }
+      if (id === "top") {
+        history.replaceState(null, null, " ");
+      } else {
+        history.pushState(null, null, `#${id}`);
+      }
+    });
+  });
+  var mybutton = document.getElementById("top-link");
+  window.onscroll = function () {
+    if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+      mybutton.style.visibility = "visible";
+      mybutton.style.opacity = "1";
+    } else {
+      mybutton.style.visibility = "hidden";
+      mybutton.style.opacity = "0";
+    }
+  };
+
+  function menu_on_scroll() {
+    localStorage.setItem("menu-scroll-position", document.getElementById('menu').scrollLeft);
+  }
+
+</script>
+<script>
+  document.getElementById("theme-toggle").addEventListener("click", () => {
+    if (document.body.className.includes("dark")) {
+      document.body.classList.remove('dark');
+      localStorage.setItem("pref-theme", 'light');
+    } else {
+      document.body.classList.add('dark');
+      localStorage.setItem("pref-theme", 'dark');
+    }
+  })
+
+</script>
+
+</body>
+<script>
+  !(function (e, t, n, s, u, a) {
+    e.twq ||
+      ((s = e.twq =
+        function () {
+          s.exe ? s.exe.apply(s, arguments) : s.queue.push(arguments);
+        }),
+      (s.version = "1.1"),
+      (s.queue = []),
+      (u = t.createElement(n)),
+      (u.async = !0),
+      (u.src = "//static.ads-twitter.com/uwt.js"),
+      (a = t.getElementsByTagName(n)[0]),
+      a.parentNode.insertBefore(u, a));
+  })(window, document, "script");
+  
+  twq("init", "o5htq");
+  twq("track", "PageView");
+</script>
+
+
+
+</html>

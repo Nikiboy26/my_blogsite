@@ -1,22 +1,27 @@
 ---
-title: Specialty coffee grades
-author: Nikita Kaymonov
-date: '2022-01-02'
+title: '[Kaggle] Specialty Cofee Grades'
+author: Package Build
+date: '2022-05-01'
 slug: []
 categories:
   - R
-tags: []
+tags:
+  - kaggle
+  - analysis
+  - machine learning
+url: ~
+hidemeta: yes
+disableshare: yes
+summary: ~
 ---
-
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-```
 
 ### Coffee quality prediction 
 
+Originally published on [Kaggle](https://www.kaggle.com/code/nikitakaymonov/coffee-quality-analysis-and-ml-model)
+
 #### Introduction
 
-Hi, I'm Nikita. I love high quality coffee. You probably have seen a lot of specialty cafes around (or probably sitting in one right now while reading this and drinking your Geisha coffee made in Chemex). For coffee to be put in the "specialty" category it has to be graded higher than 80 points on a 100 point scale. People who taste and grade coffee are trained specialists (like wine sommeliers) called q-graders. They can evaluate the quality and defects of green beans, find potential mistakes in coffee roasting and identify different roasts. I don't have highly developed sensory skills needed to be a grader. But I have other skills. So why not use machine learning to grade the coffee? 
+Hi, I'm Nikita. I love good coffee. You probably have seen a lot of specialty cafes around (or probably sitting in one right now while reading this and drinking your Geisha coffee made in Chemex). For coffee to be put in the "specialty" category it has to be graded higher than 80 points on a 100 point scale. People who taste and grade coffee are trained specialists (like wine sommeliers) called q-graders. They can evaluate the quality and defects of green beans, find potential mistakes in coffee roasting and identify different roasts. I don't have highly developed sensory skills needed to be a grader. But I have other skills. So why not use machine learning to grade the coffee? 
 
 Sounds interesting to you? Check out this analysis! 
 
@@ -194,15 +199,15 @@ coffee_sub%>%
         panel.background = element_blank(), axis.line = element_line(colour = "black"))
 ```
 
-The highest grading point we have in this dataset is 89.92. Which means we don't really have bags with 'outstanding' coffee. There are some "excellent" coffees but most bags fall into 'Very Good' category. Which means only 13.5% of our coffee is not 'Specialty Coffee'.
+The highest grading point we have in this dataset is 89.92. Which means we don't really have bags with 'outstanding' coffee. There are some "excellent" coffees but most bags fall into the 'Very Good' category. Which means only 13.5% of our coffee is not 'Specialty Coffee'.
 So if you would randomly pick a bag from our dataset most likely you will enjoy your cup of coffee (assuming you know how to brew it). 
+ 
 
 #### Modelling 
 
-As I showed above coffee comes from different countries and processed using different methods. There are also other variables like the altitude where coffee grows, different type of defects beans have etc. 
-To sell our beans to good cafes we need to find a trained person who would taste our coffee and assign the grade. Instead of training a person we can just train a machine and then using it to assign grades to new coffee. 
+As I showed above, coffee comes from different countries and is processed using different methods. There are also other variables like the altitude where coffee grows, different types of defects beans have etc. 
+To sell our beans to good cafes we need to find a trained person who would taste our coffee and assign the grade. Instead of training a person we can just train a machine and then use it to assign grades to new coffee. 
 So below you'll find my model that does exactly this. 
-
 
 ### Building predictive models
 
@@ -260,7 +265,7 @@ rmse_cv <-  sqrt(mean(error$total.cup.points^2)) #SD = 1.722239
 rmse_cv
 ```
 
-Good start, but we want RMSE that less than standart deviation in dataset, so let's try Random Forest 
+Good start, but we want RMSE that less than standard deviation in dataset, so let's try Random Forest
 
 #### Random forest 
 
@@ -291,10 +296,9 @@ rmse_rf <-  sqrt(mean(error$total.cup.points^2)) #
 rmse_rf
 ```
 
-So we got RMSE 1.261236 which is pretty good result given SD = 2.610294. Since hiring q-graders can be expensive, some coffee farmers can actually use machine learning for grading their coffee. 
+So we got RMSE 1.261236 which is a pretty good result given SD = 2.610294. Since hiring q-graders can be expensive, some coffee farmers can actually use machine learning for grading their coffee. 
 
 ##### Next step 
 
-Having some newer data and wrapping this model into Shiny app and you can just input the info on whatever beans you have and get pretty qccurade grades 🙂
-
+Having some newer data and wrapping this model into Shiny app and you can just input the info on whatever beans you have and get pretty accurate grades 🙂
 

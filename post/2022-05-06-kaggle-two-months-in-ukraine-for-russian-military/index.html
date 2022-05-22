@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>[Kaggle] Two months in Ukraine for Russian Military | Nikita Kaymonov</title>
+<meta name="keywords" content="kaggle, analysis">
+<meta name="description" content="Introduction Originally published on Kaggle
+On February 24th 2022 Russia launched a full-scale invasion on Ukrainian soil. Months before the invasion Russia started moving its troops closer to the Ukrainian border. According to the US government Russia had between 169,000 and 190,000 personnel in and around Ukraine. Many analysts believed that war would end very quick resulting in Russia’s victory. However, 2 months after the invasion began, Russia not only didn’t destroy Ukrainian forces, there is a good chance now for Russia to lose this war.">
+<meta name="author" content="Package Build">
+<link rel="canonical" href="https://nikita-kaymonov.netlify.app/post/2022-05-06-kaggle-two-months-in-ukraine-for-russian-military/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.min.ec8da366ca2fb647537ccb7a8f6fa5b4e9cd3c7a0d3171dd2d3baad1e49c8bfc.css" integrity="sha256-7I2jZsovtkdTfMt6j2&#43;ltOnNPHoNMXHdLTuq0eSci/w=" rel="preload stylesheet" as="style">
+<script defer crossorigin="anonymous" src="/assets/js/highlight.min.2840b7fccd34145847db71a290569594bdbdb00047097f75d6495d162f5d7dff.js" integrity="sha256-KEC3/M00FFhH23GikFaVlL29sABHCX911kldFi9dff8="
+    onload="hljs.initHighlightingOnLoad();"></script>
+<link rel="icon" href="https://nikita-kaymonov.netlify.app/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://nikita-kaymonov.netlify.app/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://nikita-kaymonov.netlify.app/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://nikita-kaymonov.netlify.app/apple-touch-icon.png">
+<link rel="mask-icon" href="https://nikita-kaymonov.netlify.app/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --hljs-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript>
+<script
+  defer
+  src="https://static.cloudflareinsights.com/beacon.min.js"
+  data-cf-beacon='{"token": "392941b3f13c4678bb21cdb0fadafe91"}'
+></script>
+
+
+<meta
+  name="google-site-verification"
+  content="ksFwXaurAJ-U31-m5d3m-e4vgS96Hc1JfSx4Wq-gSF4"
+/>
+
+
+<script
+  async
+  src="https://www.googletagmanager.com/gtag/js?id="
+></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() {
+    dataLayer.push(arguments);
+  }
+  gtag("js", new Date());
+
+  gtag("config", "");
+</script>
+
+<meta property="og:title" content="[Kaggle] Two months in Ukraine for Russian Military" />
+<meta property="og:description" content="Introduction Originally published on Kaggle
+On February 24th 2022 Russia launched a full-scale invasion on Ukrainian soil. Months before the invasion Russia started moving its troops closer to the Ukrainian border. According to the US government Russia had between 169,000 and 190,000 personnel in and around Ukraine. Many analysts believed that war would end very quick resulting in Russia’s victory. However, 2 months after the invasion began, Russia not only didn’t destroy Ukrainian forces, there is a good chance now for Russia to lose this war." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://nikita-kaymonov.netlify.app/post/2022-05-06-kaggle-two-months-in-ukraine-for-russian-military/" /><meta property="og:image" content="https://nikita-kaymonov.netlify.app/papermod-cover.png"/><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2022-05-06T00:00:00&#43;00:00" />
+<meta property="article:modified_time" content="2022-05-06T00:00:00&#43;00:00" />
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://nikita-kaymonov.netlify.app/papermod-cover.png"/>
+
+<meta name="twitter:title" content="[Kaggle] Two months in Ukraine for Russian Military"/>
+<meta name="twitter:description" content="Introduction Originally published on Kaggle
+On February 24th 2022 Russia launched a full-scale invasion on Ukrainian soil. Months before the invasion Russia started moving its troops closer to the Ukrainian border. According to the US government Russia had between 169,000 and 190,000 personnel in and around Ukraine. Many analysts believed that war would end very quick resulting in Russia’s victory. However, 2 months after the invasion began, Russia not only didn’t destroy Ukrainian forces, there is a good chance now for Russia to lose this war."/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "Posts",
+      "item": "https://nikita-kaymonov.netlify.app/post/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  3 ,
+      "name": "[Kaggle] Two months in Ukraine for Russian Military",
+      "item": "https://nikita-kaymonov.netlify.app/post/2022-05-06-kaggle-two-months-in-ukraine-for-russian-military/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "[Kaggle] Two months in Ukraine for Russian Military",
+  "name": "[Kaggle] Two months in Ukraine for Russian Military",
+  "description": "Introduction Originally published on Kaggle\nOn February 24th 2022 Russia launched a full-scale invasion on Ukrainian soil. Months before the invasion Russia started moving its troops closer to the Ukrainian border. According to the US government Russia had between 169,000 and 190,000 personnel in and around Ukraine. Many analysts believed that war would end very quick resulting in Russia’s victory. However, 2 months after the invasion began, Russia not only didn’t destroy Ukrainian forces, there is a good chance now for Russia to lose this war.",
+  "keywords": [
+    "kaggle", "analysis"
+  ],
+  "articleBody": "       Introduction Originally published on Kaggle\nOn February 24th 2022 Russia launched a full-scale invasion on Ukrainian soil. Months before the invasion Russia started moving its troops closer to the Ukrainian border. According to the US government Russia had between 169,000 and 190,000 personnel in and around Ukraine. Many analysts believed that war would end very quick resulting in Russia’s victory. However, 2 months after the invasion began, Russia not only didn’t destroy Ukrainian forces, there is a good chance now for Russia to lose this war. There are a lot of reasons why Russia failed but here I would to focus on the information about Russian losses after these two months of war. You can also get familiar with the data in a shiny app here\nSoldiers Counting the losses is not an easy task especially during a full scale war. There are several aspects that make it difficult. While the war is still going, each side wants to look better and keep its soldiers and civilians moral so they tend to exaggerate the enemy losses while understating its own casualties. Russia doesn’t like to talk about its losses and does not give weekly updates. After the first month they confirmed 1351 killed and 3825 wounded soldiers. At approximately the same time NATO estimated 7.000 to 15.000 killed and up to 40.000 in total killed, wounded, taken or missing. The Ukrainian number at this point was about 15.000 which aligns more closely with NATO estimates. Another problem as I said before the war is not stopping after each firefight. Depending on the level of communication some units are just not able to report enemy’s losses correctly. Especially if the unit was destroyed. There are some features of this war that help to get numbers in real time: we have a lot of drone footage or analysis of the Russian social networks to identify soldiers who didn’t come back. But the point is that it’s quite difficult to know the precise numbers.\n {\"x\":{\"visdat\":{\"6d323f209093\":[\"function () \",\"plotlyVisDat\"]},\"cur_data\":\"6d323f209093\",\"attrs\":{\"6d323f209093\":{\"x\":{},\"y\":{},\"hoverinfo\":\"text\",\"text\":{},\"alpha_stroke\":1,\"sizes\":[10,100],\"spans\":[1,20],\"type\":\"bar\",\"inherit\":true}},\"layout\":{\"margin\":{\"b\":40,\"l\":60,\"t\":25,\"r\":10},\"xaxis\":{\"domain\":[0,1],\"automargin\":true,\"title\":\"Date\"},\"yaxis\":{\"domain\":[0,1],\"automargin\":true,\"title\":\"Number per Day\"},\"title\":\"Amount of Personnel Lost per Day\",\"hovermode\":\"closest\",\"showlegend\":false},\"source\":\"A\",\"config\":{\"modeBarButtonsToAdd\":[\"hoverclosest\",\"hovercompare\"],\"showSendToCloud\":false},\"data\":[{\"x\":[\"2022-02-26\",\"2022-02-27\",\"2022-02-28\",\"2022-03-01\",\"2022-03-02\",\"2022-03-03\",\"2022-03-04\",\"2022-03-05\",\"2022-03-06\",\"2022-03-07\",\"2022-03-08\",\"2022-03-09\",\"2022-03-10\",\"2022-03-11\",\"2022-03-12\",\"2022-03-13\",\"2022-03-14\",\"2022-03-15\",\"2022-03-16\",\"2022-03-17\",\"2022-03-18\",\"2022-03-19\",\"2022-03-20\",\"2022-03-21\",\"2022-03-22\",\"2022-03-23\",\"2022-03-24\",\"2022-03-25\",\"2022-03-26\",\"2022-03-27\",\"2022-03-28\",\"2022-03-29\",\"2022-03-30\",\"2022-03-31\",\"2022-04-01\",\"2022-04-02\",\"2022-04-03\",\"2022-04-04\",\"2022-04-05\",\"2022-04-06\",\"2022-04-07\",\"2022-04-08\",\"2022-04-09\",\"2022-04-10\",\"2022-04-11\",\"2022-04-12\",\"2022-04-13\",\"2022-04-14\",\"2022-04-15\",\"2022-04-16\",\"2022-04-17\",\"2022-04-18\",\"2022-04-19\",\"2022-04-20\",\"2022-04-21\",\"2022-04-22\"],\"y\":[1500,200,800,410,130,3160,166,834,1000,0,1000,0,0,0,0,0,0,1500,300,200,200,200,300,300,300,300,200,300,300,200,400,200,100,200,200,0,300,300,200,100,300,100,100,200,200,100,200,100,100,100,200,300,200,100,100,1000],\"hoverinfo\":[\"text\",\"text\",\"text\",\"text\",\"text\",\"text\",\"text\",\"text\",\"text\",\"text\",\"text\",\"text\",\"text\",\"text\",\"text\",\"text\",\"text\",\"text\",\"text\",\"text\",\"text\",\"text\",\"text\",\"text\",\"text\",\"text\",\"text\",\"text\",\"text\",\"text\",\"text\",\"text\",\"text\",\"text\",\"text\",\"text\",\"text\",\"text\",\"text\",\"text\",\"text\",\"text\",\"text\",\"text\",\"text\",\"text\",\"text\",\"text\",\"text\",\"text\",\"text\",\"text\",\"text\",\"text\",\"text\",\"text\"],\"text\":[\"Date: 2022-02-26 Units: 1500\",\"Date: 2022-02-27 Units: 200\",\"Date: 2022-02-28 Units: 800\",\"Date: 2022-03-01 Units: 410\",\"Date: 2022-03-02 Units: 130\",\"Date: 2022-03-03 Units: 3160\",\"Date: 2022-03-04 Units: 166\",\"Date: 2022-03-05 Units: 834\",\"Date: 2022-03-06 Units: 1000\",\"Date: 2022-03-07 Units: 0\",\"Date: 2022-03-08 Units: 1000\",\"Date: 2022-03-09 Units: 0\",\"Date: 2022-03-10 Units: 0\",\"Date: 2022-03-11 Units: 0\",\"Date: 2022-03-12 Units: 0\",\"Date: 2022-03-13 Units: 0\",\"Date: 2022-03-14 Units: 0\",\"Date: 2022-03-15 Units: 1500\",\"Date: 2022-03-16 Units: 300\",\"Date: 2022-03-17 Units: 200\",\"Date: 2022-03-18 Units: 200\",\"Date: 2022-03-19 Units: 200\",\"Date: 2022-03-20 Units: 300\",\"Date: 2022-03-21 Units: 300\",\"Date: 2022-03-22 Units: 300\",\"Date: 2022-03-23 Units: 300\",\"Date: 2022-03-24 Units: 200\",\"Date: 2022-03-25 Units: 300\",\"Date: 2022-03-26 Units: 300\",\"Date: 2022-03-27 Units: 200\",\"Date: 2022-03-28 Units: 400\",\"Date: 2022-03-29 Units: 200\",\"Date: 2022-03-30 Units: 100\",\"Date: 2022-03-31 Units: 200\",\"Date: 2022-04-01 Units: 200\",\"Date: 2022-04-02 Units: 0\",\"Date: 2022-04-03 Units: 300\",\"Date: 2022-04-04 Units: 300\",\"Date: 2022-04-05 Units: 200\",\"Date: 2022-04-06 Units: 100\",\"Date: 2022-04-07 Units: 300\",\"Date: 2022-04-08 Units: 100\",\"Date: 2022-04-09 Units: 100\",\"Date: 2022-04-10 Units: 200\",\"Date: 2022-04-11 Units: 200\",\"Date: 2022-04-12 Units: 100\",\"Date: 2022-04-13 Units: 200\",\"Date: 2022-04-14 Units: 100\",\"Date: 2022-04-15 Units: 100\",\"Date: 2022-04-16 Units: 100\",\"Date: 2022-04-17 Units: 200\",\"Date: 2022-04-18 Units: 300\",\"Date: 2022-04-19 Units: 200\",\"Date: 2022-04-20 Units: 100\",\"Date: 2022-04-21 Units: 100\",\"Date: 2022-04-22 Units: 1000\"],\"type\":\"bar\",\"marker\":{\"color\":\"rgba(31,119,180,1)\",\"line\":{\"color\":\"rgba(31,119,180,1)\"}},\"error_y\":{\"color\":\"rgba(31,119,180,1)\"},\"error_x\":{\"color\":\"rgba(31,119,180,1)\"},\"xaxis\":\"x\",\"yaxis\":\"y\",\"frame\":null}],\"highlight\":{\"on\":\"plotly_click\",\"persistent\":false,\"dynamic\":false,\"selectize\":false,\"opacityDim\":0.2,\"selected\":{\"opacity\":1},\"debounce\":0},\"shinyEvents\":[\"plotly_hover\",\"plotly_click\",\"plotly_selected\",\"plotly_relayout\",\"plotly_brushed\",\"plotly_brushing\",\"plotly_clickannotation\",\"plotly_doubleclick\",\"plotly_deselect\",\"plotly_afterplot\",\"plotly_sunburstclick\"],\"base_url\":\"https://plot.ly\"},\"evals\":[],\"jsHooks\":[]} Here we can see that a lot of heavy fights happened in the beginning of the war. Also we can see no reported losses from March 9th to 14th. It’s hard to believe there were no fire-fights. Most likely it’s a reporting problem. Another interesting thing about the data is that we have 15 days where the number of Russian losses is 200, 11 days where it is 200 and 10 with 100. Obviously that tells us that it’s not a real number. Is it fake? More likely is that numbers are just rounded but it’s still an interesting thing to look into\n Tanks  {\"x\":{\"visdat\":{\"6d32619921f8\":[\"function () \",\"plotlyVisDat\"]},\"cur_data\":\"6d32619921f8\",\"attrs\":{\"6d32619921f8\":{\"x\":{},\"y\":{},\"hoverinfo\":\"text\",\"text\":{},\"alpha_stroke\":1,\"sizes\":[10,100],\"spans\":[1,20],\"type\":\"bar\",\"inherit\":true}},\"layout\":{\"margin\":{\"b\":40,\"l\":60,\"t\":25,\"r\":10},\"xaxis\":{\"domain\":[0,1],\"automargin\":true,\"title\":\"Date\"},\"yaxis\":{\"domain\":[0,1],\"automargin\":true,\"title\":\"Number per Day\"},\"title\":\"Amount of Tanks Lost per Day\",\"hovermode\":\"closest\",\"showlegend\":false},\"source\":\"A\",\"config\":{\"modeBarButtonsToAdd\":[\"hoverclosest\",\"hovercompare\"],\"showSendToCloud\":false},\"data\":[{\"x\":[\"2022-02-26\",\"2022-02-27\",\"2022-02-28\",\"2022-03-01\",\"2022-03-02\",\"2022-03-03\",\"2022-03-04\",\"2022-03-05\",\"2022-03-06\",\"2022-03-07\",\"2022-03-08\",\"2022-03-09\",\"2022-03-10\",\"2022-03-11\",\"2022-03-12\",\"2022-03-13\",\"2022-03-14\",\"2022-03-15\",\"2022-03-16\",\"2022-03-17\",\"2022-03-18\",\"2022-03-19\",\"2022-03-20\",\"2022-03-21\",\"2022-03-22\",\"2022-03-23\",\"2022-03-24\",\"2022-03-25\",\"2022-03-26\",\"2022-03-27\",\"2022-03-28\",\"2022-03-29\",\"2022-03-30\",\"2022-03-31\",\"2022-04-01\",\"2022-04-02\",\"2022-04-03\",\"2022-04-04\",\"2022-04-05\",\"2022-04-06\",\"2022-04-07\",\"2022-04-08\",\"2022-04-09\",\"2022-04-10\",\"2022-04-11\",\"2022-04-12\",\"2022-04-13\",\"2022-04-14\",\"2022-04-15\",\"2022-04-16\",\"2022-04-17\",\"2022-04-18\",\"2022-04-19\",\"2022-04-20\",\"2022-04-21\",\"2022-04-22\"],\"y\":[66,4,0,48,13,6,34,18,16,5,13,14,18,18,9,12,15,15,26,14,6,16,10,22,11,8,13,31,14,7,4,11,8,9,11,6,13,3,29,8,14,2,5,17,3,7,7,14,3,6,11,17,12,13,14,9],\"hoverinfo\":[\"text\",\"text\",\"text\",\"text\",\"text\",\"text\",\"text\",\"text\",\"text\",\"text\",\"text\",\"text\",\"text\",\"text\",\"text\",\"text\",\"text\",\"text\",\"text\",\"text\",\"text\",\"text\",\"text\",\"text\",\"text\",\"text\",\"text\",\"text\",\"text\",\"text\",\"text\",\"text\",\"text\",\"text\",\"text\",\"text\",\"text\",\"text\",\"text\",\"text\",\"text\",\"text\",\"text\",\"text\",\"text\",\"text\",\"text\",\"text\",\"text\",\"text\",\"text\",\"text\",\"text\",\"text\",\"text\",\"text\"],\"text\":[\"Date: 2022-02-26 Units: 66\",\"Date: 2022-02-27 Units: 4\",\"Date: 2022-02-28 Units: 0\",\"Date: 2022-03-01 Units: 48\",\"Date: 2022-03-02 Units: 13\",\"Date: 2022-03-03 Units: 6\",\"Date: 2022-03-04 Units: 34\",\"Date: 2022-03-05 Units: 18\",\"Date: 2022-03-06 Units: 16\",\"Date: 2022-03-07 Units: 5\",\"Date: 2022-03-08 Units: 13\",\"Date: 2022-03-09 Units: 14\",\"Date: 2022-03-10 Units: 18\",\"Date: 2022-03-11 Units: 18\",\"Date: 2022-03-12 Units: 9\",\"Date: 2022-03-13 Units: 12\",\"Date: 2022-03-14 Units: 15\",\"Date: 2022-03-15 Units: 15\",\"Date: 2022-03-16 Units: 26\",\"Date: 2022-03-17 Units: 14\",\"Date: 2022-03-18 Units: 6\",\"Date: 2022-03-19 Units: 16\",\"Date: 2022-03-20 Units: 10\",\"Date: 2022-03-21 Units: 22\",\"Date: 2022-03-22 Units: 11\",\"Date: 2022-03-23 Units: 8\",\"Date: 2022-03-24 Units: 13\",\"Date: 2022-03-25 Units: 31\",\"Date: 2022-03-26 Units: 14\",\"Date: 2022-03-27 Units: 7\",\"Date: 2022-03-28 Units: 4\",\"Date: 2022-03-29 Units: 11\",\"Date: 2022-03-30 Units: 8\",\"Date: 2022-03-31 Units: 9\",\"Date: 2022-04-01 Units: 11\",\"Date: 2022-04-02 Units: 6\",\"Date: 2022-04-03 Units: 13\",\"Date: 2022-04-04 Units: 3\",\"Date: 2022-04-05 Units: 29\",\"Date: 2022-04-06 Units: 8\",\"Date: 2022-04-07 Units: 14\",\"Date: 2022-04-08 Units: 2\",\"Date: 2022-04-09 Units: 5\",\"Date: 2022-04-10 Units: 17\",\"Date: 2022-04-11 Units: 3\",\"Date: 2022-04-12 Units: 7\",\"Date: 2022-04-13 Units: 7\",\"Date: 2022-04-14 Units: 14\",\"Date: 2022-04-15 Units: 3\",\"Date: 2022-04-16 Units: 6\",\"Date: 2022-04-17 Units: 11\",\"Date: 2022-04-18 Units: 17\",\"Date: 2022-04-19 Units: 12\",\"Date: 2022-04-20 Units: 13\",\"Date: 2022-04-21 Units: 14\",\"Date: 2022-04-22 Units: 9\"],\"type\":\"bar\",\"marker\":{\"color\":\"rgba(31,119,180,1)\",\"line\":{\"color\":\"rgba(31,119,180,1)\"}},\"error_y\":{\"color\":\"rgba(31,119,180,1)\"},\"error_x\":{\"color\":\"rgba(31,119,180,1)\"},\"xaxis\":\"x\",\"yaxis\":\"y\",\"frame\":null}],\"highlight\":{\"on\":\"plotly_click\",\"persistent\":false,\"dynamic\":false,\"selectize\":false,\"opacityDim\":0.2,\"selected\":{\"opacity\":1},\"debounce\":0},\"shinyEvents\":[\"plotly_hover\",\"plotly_click\",\"plotly_selected\",\"plotly_relayout\",\"plotly_brushed\",\"plotly_brushing\",\"plotly_clickannotation\",\"plotly_doubleclick\",\"plotly_deselect\",\"plotly_afterplot\",\"plotly_sunburstclick\"],\"base_url\":\"https://plot.ly\"},\"evals\":[],\"jsHooks\":[]} Oh, tanks. Probably everyone who has the internet saw a bunch of photos of destroyed Russian tanks, especially ones that get decapitated. One thing about lost tanks is that it is easier to get a better number. Tanks are quite big and easier to identify using footage we get from the ground and numerous drones. For example here you can find documented Russian equipment losses in Ukraine. For each destroyed tank or other military equipment there is a photo so it makes it way easier to identify and confirm losses. So we can see that Javelins and other anti-tank weapons provided to Ukranians work very well against Russian tanks. But unlike Germany that has only two thousand tanks, Russia has about 22 thousand. Of course, we don’t know how many of them are actually able to fight, but the point is: Russia can afford to lose thousands of tanks.\n Aircrafts As war started Russia almost immediately claimed air superiority and that it destroyed Ukrainian air forces. Although we didn’t really see massive use of Russian planes. Moreover, we see a lot of footage of Russian jets and helicopters being taken down. As javelins are effective against tanks stingers doing a pretty good job shooting aircrafts.\n {\"x\":{\"visdat\":{\"6d32501a7ad\":[\"function () \",\"plotlyVisDat\"]},\"cur_data\":\"6d32501a7ad\",\"attrs\":{\"6d32501a7ad\":{\"x\":{},\"y\":{},\"color\":{},\"alpha_stroke\":1,\"sizes\":[10,100],\"spans\":[1,20],\"type\":\"bar\",\"inherit\":true}},\"layout\":{\"margin\":{\"b\":40,\"l\":60,\"t\":25,\"r\":10},\"barmode\":\"stack\",\"xaxis\":{\"domain\":[0,1],\"automargin\":true,\"title\":\"Date\"},\"yaxis\":{\"domain\":[0,1],\"automargin\":true,\"title\":\"Number per Day\"},\"title\":\"Aircrafts Lost per Day\",\"hovermode\":\"closest\",\"showlegend\":true},\"source\":\"A\",\"config\":{\"modeBarButtonsToAdd\":[\"hoverclosest\",\"hovercompare\"],\"showSendToCloud\":false},\"data\":[{\"x\":[\"2022-02-26\",\"2022-02-27\",\"2022-02-28\",\"2022-03-01\",\"2022-03-02\",\"2022-03-03\",\"2022-03-04\",\"2022-03-05\",\"2022-03-06\",\"2022-03-07\",\"2022-03-08\",\"2022-03-09\",\"2022-03-10\",\"2022-03-11\",\"2022-03-12\",\"2022-03-13\",\"2022-03-14\",\"2022-03-15\",\"2022-03-16\",\"2022-03-17\",\"2022-03-18\",\"2022-03-19\",\"2022-03-20\",\"2022-03-21\",\"2022-03-22\",\"2022-03-23\",\"2022-03-24\",\"2022-03-25\",\"2022-03-26\",\"2022-03-27\",\"2022-03-28\",\"2022-03-29\",\"2022-03-30\",\"2022-03-31\",\"2022-04-01\",\"2022-04-02\",\"2022-04-03\",\"2022-04-04\",\"2022-04-05\",\"2022-04-06\",\"2022-04-07\",\"2022-04-08\",\"2022-04-09\",\"2022-04-10\",\"2022-04-11\",\"2022-04-12\",\"2022-04-13\",\"2022-04-14\",\"2022-04-15\",\"2022-04-16\",\"2022-04-17\",\"2022-04-18\",\"2022-04-19\",\"2022-04-20\",\"2022-04-21\",\"2022-04-22\"],\"y\":[17,0,2,0,1,0,3,6,5,2,2,1,0,8,1,16,3,4,3,2,7,2,1,1,2,2,7,7,2,4,2,4,4,4,8,0,0,4,3,0,0,0,1,1,2,3,1,2,3,0,2,2,2,2,1,4],\"type\":\"bar\",\"name\":\"Aircrafts\",\"marker\":{\"color\":\"rgba(102,194,165,1)\",\"line\":{\"color\":\"rgba(102,194,165,1)\"}},\"textfont\":{\"color\":\"rgba(102,194,165,1)\"},\"error_y\":{\"color\":\"rgba(102,194,165,1)\"},\"error_x\":{\"color\":\"rgba(102,194,165,1)\"},\"xaxis\":\"x\",\"yaxis\":\"y\",\"frame\":null},{\"x\":[\"2022-02-26\",\"2022-02-27\",\"2022-02-28\",\"2022-03-01\",\"2022-03-02\",\"2022-03-03\",\"2022-03-04\",\"2022-03-05\",\"2022-03-06\",\"2022-03-07\",\"2022-03-08\",\"2022-03-09\",\"2022-03-10\",\"2022-03-11\",\"2022-03-12\",\"2022-03-13\",\"2022-03-14\",\"2022-03-15\",\"2022-03-16\",\"2022-03-17\",\"2022-03-18\",\"2022-03-19\",\"2022-03-20\",\"2022-03-21\",\"2022-03-22\",\"2022-03-23\",\"2022-03-24\",\"2022-03-25\",\"2022-03-26\",\"2022-03-27\",\"2022-03-28\",\"2022-03-29\",\"2022-03-30\",\"2022-03-31\",\"2022-04-01\",\"2022-04-02\",\"2022-04-03\",\"2022-04-04\",\"2022-04-05\",\"2022-04-06\",\"2022-04-07\",\"2022-04-08\",\"2022-04-09\",\"2022-04-10\",\"2022-04-11\",\"2022-04-12\",\"2022-04-13\",\"2022-04-14\",\"2022-04-15\",\"2022-04-16\",\"2022-04-17\",\"2022-04-18\",\"2022-04-19\",\"2022-04-20\",\"2022-04-21\",\"2022-04-22\"],\"y\":[19,0,3,0,2,0,6,3,8,20,12,1,0,2,0,3,4,5,13,0,4,3,3,3,2,1,0,1,2,0,0,2,2,0,0,3,0,0,0,1,0,0,1,1,0,3,3,1,0,1,1,1,3,0,1,2],\"type\":\"bar\",\"name\":\"Helicopters\",\"marker\":{\"color\":\"rgba(141,160,203,1)\",\"line\":{\"color\":\"rgba(141,160,203,1)\"}},\"textfont\":{\"color\":\"rgba(141,160,203,1)\"},\"error_y\":{\"color\":\"rgba(141,160,203,1)\"},\"error_x\":{\"color\":\"rgba(141,160,203,1)\"},\"xaxis\":\"x\",\"yaxis\":\"y\",\"frame\":null}],\"highlight\":{\"on\":\"plotly_click\",\"persistent\":false,\"dynamic\":false,\"selectize\":false,\"opacityDim\":0.2,\"selected\":{\"opacity\":1},\"debounce\":0},\"shinyEvents\":[\"plotly_hover\",\"plotly_click\",\"plotly_selected\",\"plotly_relayout\",\"plotly_brushed\",\"plotly_brushing\",\"plotly_clickannotation\",\"plotly_doubleclick\",\"plotly_deselect\",\"plotly_afterplot\",\"plotly_sunburstclick\"],\"base_url\":\"https://plot.ly\"},\"evals\":[],\"jsHooks\":[]}  What do we have now So far we can see that the attempt to quickly take the Ukraine failed and Russia has lost more soldiers than it did during both Chechen wars together. But it doesn’t mean Russia has lost and is ready to stop. Russia is a very big country that has a lot of reserves and can keep throwing soldiers and equipment into Ukraine for quite a long time. Ukraine on the other hand is backed by Western countries that pledged to supply the Ukrainian army with equipment and ammunition. So, unless it turns into a nuclear annihilation this is going to be a long war.\n Where is it all going? Anybody who has studied the history of armed conflicts knows that it’s always easy to start a war, the problem is nobody knows how to stop it. There’s no clear scenario where both sides agree to a ceasefire. Russian propaganda is completely focused on convincing its people that they have to keep fighting. Taking the whole Ukraine looks highly unlikely but even if Russia somehow occupies the Donbas region Ukranians will not stop fighting. Looks like both sides are ready for the war of attrition. Under the economic sanctions and even if there’s a gas embargo Russia has enough resources to keep fighting. Sadly, we are going to see more people die and more cities destroyed.\n  ",
+  "wordCount" : "1233",
+  "inLanguage": "en",
+  "datePublished": "2022-05-06T00:00:00Z",
+  "dateModified": "2022-05-06T00:00:00Z",
+  "author":{
+    "@type": "Person",
+    "name": "Package Build"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://nikita-kaymonov.netlify.app/post/2022-05-06-kaggle-two-months-in-ukraine-for-russian-military/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Nikita Kaymonov",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://nikita-kaymonov.netlify.app/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://nikita-kaymonov.netlify.app" accesskey="h" title="Nikita Kaymonov (Alt + H)">Nikita Kaymonov</a>
+            <span class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </span>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://nikita-kaymonov.netlify.app/about/" title="About me">
+                    <span>About me</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://nikita-kaymonov.netlify.app/blog/" title="Archive">
+                    <span>Archive</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://nikita-kaymonov.netlify.app/services/" title="Services">
+                    <span>Services</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+
+  <main class="main">
+
+<article class="post-single">
+  <header class="post-header"><div class="breadcrumbs"><a href="https://nikita-kaymonov.netlify.app">Home</a>&nbsp;»&nbsp;<a href="https://nikita-kaymonov.netlify.app/post/">Posts</a></div>
+    <h1 class="post-title">
+      [Kaggle] Two months in Ukraine for Russian Military
+    </h1>
+  </header> 
+  <div class="post-content">
+<script src="https://nikita-kaymonov.netlify.app/post/2022-05-06-kaggle-two-months-in-ukraine-for-russian-military/index_files/htmlwidgets/htmlwidgets.js"></script>
+<script src="https://nikita-kaymonov.netlify.app/post/2022-05-06-kaggle-two-months-in-ukraine-for-russian-military/index_files/plotly-binding/plotly.js"></script>
+<script src="https://nikita-kaymonov.netlify.app/post/2022-05-06-kaggle-two-months-in-ukraine-for-russian-military/index_files/typedarray/typedarray.min.js"></script>
+<script src="https://nikita-kaymonov.netlify.app/post/2022-05-06-kaggle-two-months-in-ukraine-for-russian-military/index_files/jquery/jquery.min.js"></script>
+<link href="https://nikita-kaymonov.netlify.app/post/2022-05-06-kaggle-two-months-in-ukraine-for-russian-military/index_files/crosstalk/css/crosstalk.min.css" rel="stylesheet" />
+<script src="https://nikita-kaymonov.netlify.app/post/2022-05-06-kaggle-two-months-in-ukraine-for-russian-military/index_files/crosstalk/js/crosstalk.min.js"></script>
+<link href="https://nikita-kaymonov.netlify.app/post/2022-05-06-kaggle-two-months-in-ukraine-for-russian-military/index_files/plotly-htmlwidgets-css/plotly-htmlwidgets.css" rel="stylesheet" />
+<script src="https://nikita-kaymonov.netlify.app/post/2022-05-06-kaggle-two-months-in-ukraine-for-russian-military/index_files/plotly-main/plotly-latest.min.js"></script>
+
+
+<div id="introduction" class="section level4">
+<h4>Introduction</h4>
+<p>Originally published on <a href="https://www.kaggle.com/code/nikitakaymonov/two-months-for-russia-in-ukraine">Kaggle</a></p>
+<p>On February 24th 2022 Russia launched a full-scale invasion on Ukrainian soil. Months before the invasion Russia started moving its troops closer to the Ukrainian border. According to the US government Russia had between 169,000 and 190,000 personnel in and around Ukraine. Many analysts believed that war would end very quick resulting in Russia’s victory. However, 2 months after the invasion began, Russia not only didn’t destroy Ukrainian forces, there is a good chance now for Russia to lose this war. There are a lot of reasons why Russia failed but here I would to focus on the information about Russian losses after these two months of war.
+You can also get familiar with the data in a shiny app <a href="https://nikita-kaymonov.shinyapps.io/rus_losses_ukraine/">here</a></p>
+<div id="soldiers" class="section level5">
+<h5>Soldiers</h5>
+<p>Counting the losses is not an easy task especially during a full scale war. There are several aspects that make it difficult. While the war is still going, each side wants to look better and keep its soldiers and civilians moral so they tend to exaggerate the enemy losses while understating its own casualties.
+Russia doesn’t like to talk about its losses and does not give weekly updates. After the first month they confirmed 1351 killed and 3825 wounded soldiers. At approximately the same time NATO estimated 7.000 to 15.000 killed and up to 40.000 in total killed, wounded, taken or missing. The Ukrainian number at this point was about 15.000 which aligns more closely with NATO estimates.
+Another problem as I said before the war is not stopping after each firefight. Depending on the level of communication some units are just not able to report enemy’s losses correctly. Especially if the unit was destroyed.
+There are some features of this war that help to get numbers in real time: we have a lot of drone footage or analysis of the Russian social networks to identify soldiers who didn’t come back. But the point is that it’s quite difficult to know the precise numbers.</p>
+<div id="htmlwidget-1" style="width:672px;height:480px;" class="plotly html-widget"></div>
+<script type="application/json" data-for="htmlwidget-1">{"x":{"visdat":{"6d323f209093":["function () ","plotlyVisDat"]},"cur_data":"6d323f209093","attrs":{"6d323f209093":{"x":{},"y":{},"hoverinfo":"text","text":{},"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"bar","inherit":true}},"layout":{"margin":{"b":40,"l":60,"t":25,"r":10},"xaxis":{"domain":[0,1],"automargin":true,"title":"Date"},"yaxis":{"domain":[0,1],"automargin":true,"title":"Number per Day"},"title":"Amount of Personnel Lost per Day","hovermode":"closest","showlegend":false},"source":"A","config":{"modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"data":[{"x":["2022-02-26","2022-02-27","2022-02-28","2022-03-01","2022-03-02","2022-03-03","2022-03-04","2022-03-05","2022-03-06","2022-03-07","2022-03-08","2022-03-09","2022-03-10","2022-03-11","2022-03-12","2022-03-13","2022-03-14","2022-03-15","2022-03-16","2022-03-17","2022-03-18","2022-03-19","2022-03-20","2022-03-21","2022-03-22","2022-03-23","2022-03-24","2022-03-25","2022-03-26","2022-03-27","2022-03-28","2022-03-29","2022-03-30","2022-03-31","2022-04-01","2022-04-02","2022-04-03","2022-04-04","2022-04-05","2022-04-06","2022-04-07","2022-04-08","2022-04-09","2022-04-10","2022-04-11","2022-04-12","2022-04-13","2022-04-14","2022-04-15","2022-04-16","2022-04-17","2022-04-18","2022-04-19","2022-04-20","2022-04-21","2022-04-22"],"y":[1500,200,800,410,130,3160,166,834,1000,0,1000,0,0,0,0,0,0,1500,300,200,200,200,300,300,300,300,200,300,300,200,400,200,100,200,200,0,300,300,200,100,300,100,100,200,200,100,200,100,100,100,200,300,200,100,100,1000],"hoverinfo":["text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text"],"text":["Date: 2022-02-26 <br> Units: 1500","Date: 2022-02-27 <br> Units: 200","Date: 2022-02-28 <br> Units: 800","Date: 2022-03-01 <br> Units: 410","Date: 2022-03-02 <br> Units: 130","Date: 2022-03-03 <br> Units: 3160","Date: 2022-03-04 <br> Units: 166","Date: 2022-03-05 <br> Units: 834","Date: 2022-03-06 <br> Units: 1000","Date: 2022-03-07 <br> Units: 0","Date: 2022-03-08 <br> Units: 1000","Date: 2022-03-09 <br> Units: 0","Date: 2022-03-10 <br> Units: 0","Date: 2022-03-11 <br> Units: 0","Date: 2022-03-12 <br> Units: 0","Date: 2022-03-13 <br> Units: 0","Date: 2022-03-14 <br> Units: 0","Date: 2022-03-15 <br> Units: 1500","Date: 2022-03-16 <br> Units: 300","Date: 2022-03-17 <br> Units: 200","Date: 2022-03-18 <br> Units: 200","Date: 2022-03-19 <br> Units: 200","Date: 2022-03-20 <br> Units: 300","Date: 2022-03-21 <br> Units: 300","Date: 2022-03-22 <br> Units: 300","Date: 2022-03-23 <br> Units: 300","Date: 2022-03-24 <br> Units: 200","Date: 2022-03-25 <br> Units: 300","Date: 2022-03-26 <br> Units: 300","Date: 2022-03-27 <br> Units: 200","Date: 2022-03-28 <br> Units: 400","Date: 2022-03-29 <br> Units: 200","Date: 2022-03-30 <br> Units: 100","Date: 2022-03-31 <br> Units: 200","Date: 2022-04-01 <br> Units: 200","Date: 2022-04-02 <br> Units: 0","Date: 2022-04-03 <br> Units: 300","Date: 2022-04-04 <br> Units: 300","Date: 2022-04-05 <br> Units: 200","Date: 2022-04-06 <br> Units: 100","Date: 2022-04-07 <br> Units: 300","Date: 2022-04-08 <br> Units: 100","Date: 2022-04-09 <br> Units: 100","Date: 2022-04-10 <br> Units: 200","Date: 2022-04-11 <br> Units: 200","Date: 2022-04-12 <br> Units: 100","Date: 2022-04-13 <br> Units: 200","Date: 2022-04-14 <br> Units: 100","Date: 2022-04-15 <br> Units: 100","Date: 2022-04-16 <br> Units: 100","Date: 2022-04-17 <br> Units: 200","Date: 2022-04-18 <br> Units: 300","Date: 2022-04-19 <br> Units: 200","Date: 2022-04-20 <br> Units: 100","Date: 2022-04-21 <br> Units: 100","Date: 2022-04-22 <br> Units: 1000"],"type":"bar","marker":{"color":"rgba(31,119,180,1)","line":{"color":"rgba(31,119,180,1)"}},"error_y":{"color":"rgba(31,119,180,1)"},"error_x":{"color":"rgba(31,119,180,1)"},"xaxis":"x","yaxis":"y","frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+<p>Here we can see that a lot of heavy fights happened in the beginning of the war. Also we can see no reported losses from March 9th to 14th. It’s hard to believe there were no fire-fights. Most likely it’s a reporting problem.
+Another interesting thing about the data is that we have 15 days where the number of Russian losses is 200, 11 days where it is 200 and 10 with 100.
+Obviously that tells us that it’s not a real number. Is it fake? More likely is that numbers are just rounded but it’s still an interesting thing to look into</p>
+</div>
+<div id="tanks" class="section level5">
+<h5>Tanks</h5>
+<div id="htmlwidget-2" style="width:672px;height:480px;" class="plotly html-widget"></div>
+<script type="application/json" data-for="htmlwidget-2">{"x":{"visdat":{"6d32619921f8":["function () ","plotlyVisDat"]},"cur_data":"6d32619921f8","attrs":{"6d32619921f8":{"x":{},"y":{},"hoverinfo":"text","text":{},"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"bar","inherit":true}},"layout":{"margin":{"b":40,"l":60,"t":25,"r":10},"xaxis":{"domain":[0,1],"automargin":true,"title":"Date"},"yaxis":{"domain":[0,1],"automargin":true,"title":"Number per Day"},"title":"Amount of Tanks Lost per Day","hovermode":"closest","showlegend":false},"source":"A","config":{"modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"data":[{"x":["2022-02-26","2022-02-27","2022-02-28","2022-03-01","2022-03-02","2022-03-03","2022-03-04","2022-03-05","2022-03-06","2022-03-07","2022-03-08","2022-03-09","2022-03-10","2022-03-11","2022-03-12","2022-03-13","2022-03-14","2022-03-15","2022-03-16","2022-03-17","2022-03-18","2022-03-19","2022-03-20","2022-03-21","2022-03-22","2022-03-23","2022-03-24","2022-03-25","2022-03-26","2022-03-27","2022-03-28","2022-03-29","2022-03-30","2022-03-31","2022-04-01","2022-04-02","2022-04-03","2022-04-04","2022-04-05","2022-04-06","2022-04-07","2022-04-08","2022-04-09","2022-04-10","2022-04-11","2022-04-12","2022-04-13","2022-04-14","2022-04-15","2022-04-16","2022-04-17","2022-04-18","2022-04-19","2022-04-20","2022-04-21","2022-04-22"],"y":[66,4,0,48,13,6,34,18,16,5,13,14,18,18,9,12,15,15,26,14,6,16,10,22,11,8,13,31,14,7,4,11,8,9,11,6,13,3,29,8,14,2,5,17,3,7,7,14,3,6,11,17,12,13,14,9],"hoverinfo":["text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text"],"text":["Date: 2022-02-26 <br> Units: 66","Date: 2022-02-27 <br> Units: 4","Date: 2022-02-28 <br> Units: 0","Date: 2022-03-01 <br> Units: 48","Date: 2022-03-02 <br> Units: 13","Date: 2022-03-03 <br> Units: 6","Date: 2022-03-04 <br> Units: 34","Date: 2022-03-05 <br> Units: 18","Date: 2022-03-06 <br> Units: 16","Date: 2022-03-07 <br> Units: 5","Date: 2022-03-08 <br> Units: 13","Date: 2022-03-09 <br> Units: 14","Date: 2022-03-10 <br> Units: 18","Date: 2022-03-11 <br> Units: 18","Date: 2022-03-12 <br> Units: 9","Date: 2022-03-13 <br> Units: 12","Date: 2022-03-14 <br> Units: 15","Date: 2022-03-15 <br> Units: 15","Date: 2022-03-16 <br> Units: 26","Date: 2022-03-17 <br> Units: 14","Date: 2022-03-18 <br> Units: 6","Date: 2022-03-19 <br> Units: 16","Date: 2022-03-20 <br> Units: 10","Date: 2022-03-21 <br> Units: 22","Date: 2022-03-22 <br> Units: 11","Date: 2022-03-23 <br> Units: 8","Date: 2022-03-24 <br> Units: 13","Date: 2022-03-25 <br> Units: 31","Date: 2022-03-26 <br> Units: 14","Date: 2022-03-27 <br> Units: 7","Date: 2022-03-28 <br> Units: 4","Date: 2022-03-29 <br> Units: 11","Date: 2022-03-30 <br> Units: 8","Date: 2022-03-31 <br> Units: 9","Date: 2022-04-01 <br> Units: 11","Date: 2022-04-02 <br> Units: 6","Date: 2022-04-03 <br> Units: 13","Date: 2022-04-04 <br> Units: 3","Date: 2022-04-05 <br> Units: 29","Date: 2022-04-06 <br> Units: 8","Date: 2022-04-07 <br> Units: 14","Date: 2022-04-08 <br> Units: 2","Date: 2022-04-09 <br> Units: 5","Date: 2022-04-10 <br> Units: 17","Date: 2022-04-11 <br> Units: 3","Date: 2022-04-12 <br> Units: 7","Date: 2022-04-13 <br> Units: 7","Date: 2022-04-14 <br> Units: 14","Date: 2022-04-15 <br> Units: 3","Date: 2022-04-16 <br> Units: 6","Date: 2022-04-17 <br> Units: 11","Date: 2022-04-18 <br> Units: 17","Date: 2022-04-19 <br> Units: 12","Date: 2022-04-20 <br> Units: 13","Date: 2022-04-21 <br> Units: 14","Date: 2022-04-22 <br> Units: 9"],"type":"bar","marker":{"color":"rgba(31,119,180,1)","line":{"color":"rgba(31,119,180,1)"}},"error_y":{"color":"rgba(31,119,180,1)"},"error_x":{"color":"rgba(31,119,180,1)"},"xaxis":"x","yaxis":"y","frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+<p>Oh, tanks. Probably everyone who has the internet saw a bunch of photos of destroyed Russian tanks, especially ones that get decapitated. One thing about lost tanks is that it is easier to get a better number. Tanks are quite big and easier to identify using footage we get from the ground and numerous drones. For example <a href="https://www.oryxspioenkop.com/2022/02/attack-on-europe-documenting-equipment.html">here</a> you can find documented Russian equipment losses in Ukraine. For each destroyed tank or other military equipment there is a photo so it makes it way easier to identify and confirm losses.
+So we can see that Javelins and other anti-tank weapons provided to Ukranians work very well against Russian tanks. But unlike Germany that has only two thousand tanks, Russia has about 22 thousand. Of course, we don’t know how many of them are actually able to fight, but the point is: Russia can afford to lose thousands of tanks.</p>
+</div>
+<div id="aircrafts" class="section level5">
+<h5>Aircrafts</h5>
+<p>As war started Russia almost immediately claimed air superiority and that it destroyed Ukrainian air forces. Although we didn’t really see massive use of Russian planes. Moreover, we see a lot of footage of Russian jets and helicopters being taken down. As javelins are effective against tanks stingers doing a pretty good job shooting aircrafts.</p>
+<div id="htmlwidget-3" style="width:672px;height:480px;" class="plotly html-widget"></div>
+<script type="application/json" data-for="htmlwidget-3">{"x":{"visdat":{"6d32501a7ad":["function () ","plotlyVisDat"]},"cur_data":"6d32501a7ad","attrs":{"6d32501a7ad":{"x":{},"y":{},"color":{},"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"bar","inherit":true}},"layout":{"margin":{"b":40,"l":60,"t":25,"r":10},"barmode":"stack","xaxis":{"domain":[0,1],"automargin":true,"title":"Date"},"yaxis":{"domain":[0,1],"automargin":true,"title":"Number per Day"},"title":"Aircrafts Lost per Day","hovermode":"closest","showlegend":true},"source":"A","config":{"modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"data":[{"x":["2022-02-26","2022-02-27","2022-02-28","2022-03-01","2022-03-02","2022-03-03","2022-03-04","2022-03-05","2022-03-06","2022-03-07","2022-03-08","2022-03-09","2022-03-10","2022-03-11","2022-03-12","2022-03-13","2022-03-14","2022-03-15","2022-03-16","2022-03-17","2022-03-18","2022-03-19","2022-03-20","2022-03-21","2022-03-22","2022-03-23","2022-03-24","2022-03-25","2022-03-26","2022-03-27","2022-03-28","2022-03-29","2022-03-30","2022-03-31","2022-04-01","2022-04-02","2022-04-03","2022-04-04","2022-04-05","2022-04-06","2022-04-07","2022-04-08","2022-04-09","2022-04-10","2022-04-11","2022-04-12","2022-04-13","2022-04-14","2022-04-15","2022-04-16","2022-04-17","2022-04-18","2022-04-19","2022-04-20","2022-04-21","2022-04-22"],"y":[17,0,2,0,1,0,3,6,5,2,2,1,0,8,1,16,3,4,3,2,7,2,1,1,2,2,7,7,2,4,2,4,4,4,8,0,0,4,3,0,0,0,1,1,2,3,1,2,3,0,2,2,2,2,1,4],"type":"bar","name":"Aircrafts","marker":{"color":"rgba(102,194,165,1)","line":{"color":"rgba(102,194,165,1)"}},"textfont":{"color":"rgba(102,194,165,1)"},"error_y":{"color":"rgba(102,194,165,1)"},"error_x":{"color":"rgba(102,194,165,1)"},"xaxis":"x","yaxis":"y","frame":null},{"x":["2022-02-26","2022-02-27","2022-02-28","2022-03-01","2022-03-02","2022-03-03","2022-03-04","2022-03-05","2022-03-06","2022-03-07","2022-03-08","2022-03-09","2022-03-10","2022-03-11","2022-03-12","2022-03-13","2022-03-14","2022-03-15","2022-03-16","2022-03-17","2022-03-18","2022-03-19","2022-03-20","2022-03-21","2022-03-22","2022-03-23","2022-03-24","2022-03-25","2022-03-26","2022-03-27","2022-03-28","2022-03-29","2022-03-30","2022-03-31","2022-04-01","2022-04-02","2022-04-03","2022-04-04","2022-04-05","2022-04-06","2022-04-07","2022-04-08","2022-04-09","2022-04-10","2022-04-11","2022-04-12","2022-04-13","2022-04-14","2022-04-15","2022-04-16","2022-04-17","2022-04-18","2022-04-19","2022-04-20","2022-04-21","2022-04-22"],"y":[19,0,3,0,2,0,6,3,8,20,12,1,0,2,0,3,4,5,13,0,4,3,3,3,2,1,0,1,2,0,0,2,2,0,0,3,0,0,0,1,0,0,1,1,0,3,3,1,0,1,1,1,3,0,1,2],"type":"bar","name":"Helicopters","marker":{"color":"rgba(141,160,203,1)","line":{"color":"rgba(141,160,203,1)"}},"textfont":{"color":"rgba(141,160,203,1)"},"error_y":{"color":"rgba(141,160,203,1)"},"error_x":{"color":"rgba(141,160,203,1)"},"xaxis":"x","yaxis":"y","frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+</div>
+<div id="what-do-we-have-now" class="section level5">
+<h5>What do we have now</h5>
+<p>So far we can see that the attempt to quickly take the Ukraine failed and Russia has lost more soldiers than it did during both Chechen wars together. But it doesn’t mean Russia has lost and is ready to stop. Russia is a very big country that has a lot of reserves and can keep throwing soldiers and equipment into Ukraine for quite a long time. Ukraine on the other hand is backed by Western countries that pledged to supply the Ukrainian army with equipment and ammunition. So, unless it turns into a nuclear annihilation this is going to be a long war.</p>
+</div>
+<div id="where-is-it-all-going" class="section level5">
+<h5>Where is it all going?</h5>
+<p>Anybody who has studied the history of armed conflicts knows that it’s always easy to start a war, the problem is nobody knows how to stop it. There’s no clear scenario where both sides agree to a ceasefire. Russian propaganda is completely focused on convincing its people that they have to keep fighting. Taking the whole Ukraine looks highly unlikely but even if Russia somehow occupies the Donbas region Ukranians will not stop fighting. Looks like both sides are ready for the war of attrition. Under the economic sanctions and even if there’s a gas embargo Russia has enough resources to keep fighting. Sadly, we are going to see more people die and more cities destroyed.</p>
+</div>
+</div>
+
+</div>
+  <br>
+  <div class="form"></div>
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://nikita-kaymonov.netlify.app/tags/kaggle/">kaggle</a></li>
+      <li><a href="https://nikita-kaymonov.netlify.app/tags/analysis/">analysis</a></li>
+    </ul>
+    <nav class="paginav">
+      <a class="next" href="https://nikita-kaymonov.netlify.app/post/2022-05-01-kaggle-specialty-cofee-grades/">
+        <span class="title">Next Page »</span>
+        <br>
+        <span>[Kaggle] Specialty Cofee Grades</span>
+      </a>
+    </nav>
+  </footer>
+</article>
+  </main><footer class="footer">
+  <span>&copy; 2019-2022 <a href="https://nikita-kaymonov.netlify.app">Nikita Kaymonov</a></span>
+  <span>&middot;</span>
+  <span>Powered by <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a></span>
+  <span>&amp;</span>
+  <span><a href="https://git.io/hugopapermod" rel="noopener" target="_blank">PaperMod</a></span>
+  <br>
+  <span>This Site is <a href="https://github.com/Jarmos-san/blog" rel="noopener noreferrer" target="_blank">Open-Sourced</a> with &#10084;&#65039;</span>
+  <span>&middot;</span>
+  <span><a href="../terms-of-service-agreement/index.html">Terms of Service</a></span>
+  <span>&middot;</span>
+  <span><a href="../privacy-policy/index.html">Privacy Policy</a></span>
+  <span>&middot;</span>
+  <span>Articles Are Licensed Under <a href="https://github.com/Jarmos-san/blog/blob/main/LICENSE" rel="nooopener noreferrer" target="_blank">CC BY-NC 4.0</a></span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)">
+  <button class="top-link" id="top-link" type="button" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+      <path d="M12 6H0l6-6z" />
+    </svg>
+  </button>
+</a>
+<script defer src="/assets/js/highlight.min.2840b7fccd34145847db71a290569594bdbdb00047097f75d6495d162f5d7dff.js" integrity="sha256-KEC3/M00FFhH23GikFaVlL29sABHCX911kldFi9dff8=" onload="hljs.initHighlightingOnLoad();"></script>
+<script>
+  window.onload = function () {
+    if (localStorage.getItem("menu-scroll-position")) {
+      document.getElementById('menu').scrollLeft = localStorage.getItem("menu-scroll-position");
+    }
+  }
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener("click", function (e) {
+      e.preventDefault();
+      var id = this.getAttribute("href").substr(1);
+      if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+          behavior: "smooth"
+        });
+      } else {
+        document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+      }
+      if (id === "top") {
+        history.replaceState(null, null, " ");
+      } else {
+        history.pushState(null, null, `#${id}`);
+      }
+    });
+  });
+  var mybutton = document.getElementById("top-link");
+  window.onscroll = function () {
+    if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+      mybutton.style.visibility = "visible";
+      mybutton.style.opacity = "1";
+    } else {
+      mybutton.style.visibility = "hidden";
+      mybutton.style.opacity = "0";
+    }
+  };
+
+  function menu_on_scroll() {
+    localStorage.setItem("menu-scroll-position", document.getElementById('menu').scrollLeft);
+  }
+
+</script>
+<script>
+  document.getElementById("theme-toggle").addEventListener("click", () => {
+    if (document.body.className.includes("dark")) {
+      document.body.classList.remove('dark');
+      localStorage.setItem("pref-theme", 'light');
+    } else {
+      document.body.classList.add('dark');
+      localStorage.setItem("pref-theme", 'dark');
+    }
+  })
+
+</script>
+
+</body>
+<script>
+  !(function (e, t, n, s, u, a) {
+    e.twq ||
+      ((s = e.twq =
+        function () {
+          s.exe ? s.exe.apply(s, arguments) : s.queue.push(arguments);
+        }),
+      (s.version = "1.1"),
+      (s.queue = []),
+      (u = t.createElement(n)),
+      (u.async = !0),
+      (u.src = "//static.ads-twitter.com/uwt.js"),
+      (a = t.getElementsByTagName(n)[0]),
+      a.parentNode.insertBefore(u, a));
+  })(window, document, "script");
+  
+  twq("init", "o5htq");
+  twq("track", "PageView");
+</script>
+
+
+
+</html>

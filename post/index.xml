@@ -2,30 +2,32 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Posts on Nikita Kaymonov</title>
-    <link>http://nikita-kaymonov.github.io/post/</link>
+    <link>https://nikita-kaymonov.netlify.app/post/</link>
     <description>Recent content in Posts on Nikita Kaymonov</description>
     <image>
-      <url>http://nikita-kaymonov.github.io/papermod-cover.png</url>
-      <link>http://nikita-kaymonov.github.io/papermod-cover.png</link>
+      <url>https://nikita-kaymonov.netlify.app/papermod-cover.png</url>
+      <link>https://nikita-kaymonov.netlify.app/papermod-cover.png</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Mon, 02 May 2022 00:00:00 +0000</lastBuildDate><atom:link href="http://nikita-kaymonov.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 06 May 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://nikita-kaymonov.netlify.app/post/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Russian Losses in Ukraine</title>
-      <link>http://nikita-kaymonov.github.io/post/2022-05-02-russian-losses-in-ukraine/</link>
-      <pubDate>Mon, 02 May 2022 00:00:00 +0000</pubDate>
+      <title>[Kaggle] Two months in Ukraine for Russian Military</title>
+      <link>https://nikita-kaymonov.netlify.app/post/2022-05-06-kaggle-two-months-in-ukraine-for-russian-military/</link>
+      <pubDate>Fri, 06 May 2022 00:00:00 +0000</pubDate>
       
-      <guid>http://nikita-kaymonov.github.io/post/2022-05-02-russian-losses-in-ukraine/</guid>
-      <description>Introduction On February 24th 2022 Russia launched a full-scale invasion on Ukrainian soil. Months before the invasion Russia started moving its troops closer to the Ukrainian border. According to the US government Russia had between 169,000 and 190,000 personnel in and around Ukraine. Many analysts believed that war would end very quick resulting in Russia’s victory. However, 2 months after the invasion began, Russia not only didn’t destroy Ukrainian forces, there is a good chance now for Russia to lose this war.</description>
+      <guid>https://nikita-kaymonov.netlify.app/post/2022-05-06-kaggle-two-months-in-ukraine-for-russian-military/</guid>
+      <description>Introduction Originally published on Kaggle
+On February 24th 2022 Russia launched a full-scale invasion on Ukrainian soil. Months before the invasion Russia started moving its troops closer to the Ukrainian border. According to the US government Russia had between 169,000 and 190,000 personnel in and around Ukraine. Many analysts believed that war would end very quick resulting in Russia’s victory. However, 2 months after the invasion began, Russia not only didn’t destroy Ukrainian forces, there is a good chance now for Russia to lose this war.</description>
     </item>
     
     <item>
-      <title>Specialty coffee grades</title>
-      <link>http://nikita-kaymonov.github.io/post/2022-05-02-new-post/</link>
-      <pubDate>Sun, 02 Jan 2022 00:00:00 +0000</pubDate>
+      <title>[Kaggle] Specialty Cofee Grades</title>
+      <link>https://nikita-kaymonov.netlify.app/post/2022-05-01-kaggle-specialty-cofee-grades/</link>
+      <pubDate>Sun, 01 May 2022 00:00:00 +0000</pubDate>
       
-      <guid>http://nikita-kaymonov.github.io/post/2022-05-02-new-post/</guid>
-      <description>Coffee quality prediction Introduction Hi, I’m Nikita. I love high quality coffee. You probably have seen a lot of specialty cafes around (or probably sitting in one right now while reading this and drinking your Geisha coffee made in Chemex). For coffee to be put in the “specialty” category it has to be graded higher than 80 points on a 100 point scale. People who taste and grade coffee are trained specialists (like wine sommeliers) called q-graders.</description>
+      <guid>https://nikita-kaymonov.netlify.app/post/2022-05-01-kaggle-specialty-cofee-grades/</guid>
+      <description>Coffee quality prediction Originally published on Kaggle
+Introduction Hi, I’m Nikita. I love good coffee. You probably have seen a lot of specialty cafes around (or probably sitting in one right now while reading this and drinking your Geisha coffee made in Chemex). For coffee to be put in the “specialty” category it has to be graded higher than 80 points on a 100 point scale. People who taste and grade coffee are trained specialists (like wine sommeliers) called q-graders.</description>
     </item>
     
   </channel>

@@ -1,19 +1,21 @@
 ---
-title: Russian Losses in Ukraine
+title: '[Kaggle] Two months in Ukraine for Russian Military'
 author: Package Build
-date: '2022-05-02'
+date: '2022-05-06'
 slug: []
 categories:
   - R
 tags:
-  - R Markdown
+  - kaggle
+  - analysis
+url: ~
+hidemeta: yes
+disableshare: yes
+summary: ~
 ---
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-```
-
 #### Introduction 
+Originally published on [Kaggle](https://www.kaggle.com/code/nikitakaymonov/two-months-for-russia-in-ukraine)
 
 On February 24th 2022 Russia launched a full-scale invasion on Ukrainian soil. Months before the invasion Russia started moving its troops closer to the Ukrainian border. According to the US government Russia had between 169,000 and 190,000 personnel in and around Ukraine. Many analysts believed that war would end very quick resulting in Russia's victory. However, 2 months after the invasion began, Russia not only didn't destroy Ukrainian forces, there is a good chance now for Russia to lose this war. There are a lot of reasons why Russia failed but here I would to focus on the information about Russian losses after these two months of war.
 You can also get familiar with the data in a shiny app [here](https://nikita-kaymonov.shinyapps.io/rus_losses_ukraine/)
@@ -109,8 +111,8 @@ losses%>%
 
 ##### What do we have now 
 
-So far we can see that the attempt to quickly take the Ukraine failed and Russia has lost more soldiers than it did during both Chechen wars together. But it doesn't mean it lost and ready to stop. Russia is a very big country that has a lot of reserves and can keep throwing soldiers and equipment into Ukraine for quite a long time. Ukraine on the other hand is backed by Western countries that pledged to supply the Ukrainian army with equipment and ammunition. So, unless it turns into a nuclear annihilation this is going to be a long war. 
+So far we can see that the attempt to quickly take the Ukraine failed and Russia has lost more soldiers than it did during both Chechen wars together. But it doesn't mean Russia has lost and is ready to stop. Russia is a very big country that has a lot of reserves and can keep throwing soldiers and equipment into Ukraine for quite a long time. Ukraine on the other hand is backed by Western countries that pledged to supply the Ukrainian army with equipment and ammunition. So, unless it turns into a nuclear annihilation this is going to be a long war. 
 
-##### Where is it all goes? 
+##### Where is it all going? 
 
 Anybody who has studied the history of armed conflicts knows that it's always easy to start a war, the problem is nobody knows how to stop it. There's no clear scenario where both sides agree to a ceasefire. Russian propaganda is completely focused on convincing its people that they have to keep fighting. Taking the whole Ukraine looks highly unlikely but even if Russia somehow occupies the Donbas region Ukranians will not stop fighting. Looks like both sides are ready for the war of attrition. Under the economic sanctions and even if there's a gas embargo Russia has enough resources to keep fighting. Sadly, we are going to see more people die and more cities destroyed.
